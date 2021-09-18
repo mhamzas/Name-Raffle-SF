@@ -43,22 +43,22 @@ export default class RaffleHome extends LightningElement {
                 //console.log("authCodeValid");
             } else {
                 // Timestamp Comparison to make sure the session time has started
-                console.log(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.Start_Time__c))).toUTCString()+ '<' +new Date().toUTCString());
-                console.log(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.End_Time__c))).toUTCString()+ '>' +new Date().toUTCString());
-                if(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.Start_Time__c))).toUTCString() < new Date().toUTCString() && new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.End_Time__c))).toUTCString() > new Date().toUTCString()){
-                    // Checking if event end time is 15min after the start time
-                    console.log(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.End_Time__c - 15*60*1000))).toUTCString() +'> '+new Date().toUTCString());
-                    if(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.End_Time__c - 15*60*1000))).toUTCString() < new Date().toUTCString()){
-                        this.showError = true;
-                        this.showForm = false;
-                    } else{
-                        this.showError = false;
-                        this.showForm = true;
-                    }
-                } else {
-                    this.showError = true;
-                    this.showForm = false;
-                }
+                // console.log(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.Start_Time__c))).toUTCString()+ '<' +new Date().toUTCString());
+                // console.log(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.End_Time__c))).toUTCString()+ '>' +new Date().toUTCString());
+                // if(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.Start_Time__c))).toUTCString() < new Date().toUTCString() && new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.End_Time__c))).toUTCString() > new Date().toUTCString()){
+                //     // Checking if event end time is 15min after the start time
+                //     console.log(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.End_Time__c - 15*60*1000))).toUTCString() +'> '+new Date().toUTCString());
+                //     if(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.End_Time__c - 15*60*1000))).toUTCString() < new Date().toUTCString()){
+                //         this.showError = true;
+                //         this.showForm = false;
+                //     } else{
+                //         this.showError = false;
+                //         this.showForm = true;
+                //     }
+                // } else {
+                    this.showError = false;
+                    this.showForm = true;
+                //}
             }
             //console.log('sessionData: ' + JSON.stringify(this.sessionData));
         } else if (error) {
