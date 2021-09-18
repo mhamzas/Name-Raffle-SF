@@ -43,12 +43,12 @@ export default class RaffleHome extends LightningElement {
                 //console.log("authCodeValid");
             } else {
                 // Timestamp Comparison to make sure the session time has started
-                //console.log(new Date(this.sessionData.Start_Date__c+'T'+this.msToTime(this.sessionData.Start_Time__c))+ '<' +new Date());
-                //console.log(new Date(this.sessionData.Start_Date__c+'T'+this.msToTime(this.sessionData.End_Time__c))+ '>' +new Date());
-                if(new Date(this.sessionData.Start_Date__c+'T'+this.msToTime(this.sessionData.Start_Time__c)) < new Date() && new Date(this.sessionData.Start_Date__c+'T'+this.msToTime(this.sessionData.End_Time__c)) > new Date()){
+                console.log(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.Start_Time__c))).toUTCString()+ '<' +new Date().toUTCString());
+                console.log(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.End_Time__c))).toUTCString()+ '>' +new Date().toUTCString());
+                if(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.Start_Time__c))).toUTCString() < new Date().toUTCString() && new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.End_Time__c))).toUTCString() > new Date().toUTCString()){
                     // Checking if event end time is 15min after the start time
-                    console.log(new Date(this.sessionData.Start_Date__c+'T'+this.msToTime(this.sessionData.End_Time__c - 15*60*1000)) +'> '+new Date());
-                    if(new Date(this.sessionData.Start_Date__c+'T'+this.msToTime(this.sessionData.End_Time__c - 15*60*1000)) < new Date()){
+                    console.log(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.End_Time__c - 15*60*1000))).toUTCString() +'> '+new Date().toUTCString());
+                    if(new Date(Date.parse(this.sessionData.Start_Date__c+' '+this.msToTime(this.sessionData.End_Time__c - 15*60*1000))).toUTCString() < new Date().toUTCString()){
                         this.showError = true;
                         this.showForm = false;
                     } else{
@@ -150,7 +150,7 @@ export default class RaffleHome extends LightningElement {
         mins = mins < 10 ? '0' + mins : mins;
         //console.log(hrs + '  ' + mins);
         //return hrs+':' + mins + ':00.000Z';
-        return hrs+':' + mins + ':00';
+        return hrs+':' + mins + ':00 GMT+5';
     }
 
 }
