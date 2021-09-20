@@ -1,5 +1,10 @@
 This app initially built for Pakistan Dreamin' 2021.
 
+<a href="https://githubsfdeploy.herokuapp.com">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
+</a>
+
 You can preview the app using the url: https://hosted-scratch.herokuapp.com/launch?template=https://github.com/mhamzas/Name-Raffle-SF
 
 Please feel free to contribute and use in your projects.
