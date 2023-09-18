@@ -15,6 +15,7 @@ export default class RaffleHome extends LightningElement {
     showSuccess=false;
     recData;
     title;
+    response;
     showRaffle=false;
 
     rec = {
@@ -127,7 +128,7 @@ export default class RaffleHome extends LightningElement {
         .catch(error=>{
             this.message = undefined;
             this.error = error;
-            
+            this.response = error.body.message;
             this.dispatchEvent(
                 new ShowToastEvent({
                     title: 'HHmm.. that did not work!',
